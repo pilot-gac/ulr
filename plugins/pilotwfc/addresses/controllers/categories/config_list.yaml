@@ -1,0 +1,16 @@
+modelClass: PilotWFC\Addresses\Models\Category
+
+list:
+    toolbar:
+        buttons:
+            create:
+                label: Додати нову категорію
+                class: btn-primary
+    columns:
+        name:
+            label: Название
+            searchable: true
+            type: text
+        slug:
+            label: Уникальный код
+            type: text

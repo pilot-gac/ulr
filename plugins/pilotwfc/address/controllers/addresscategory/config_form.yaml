@@ -1,0 +1,11 @@
+name: AddressCategory
+modelClass: Pilotwfc\Address\Models\AddressCategory
+form: $/pilotwfc/address/models/addresscategory/fields.yaml
+defaultRedirect: pilotwfc/address/addresscategory
+create:
+    redirect: 'pilotwfc/address/addresscategory/update/:id'
+    redirectClose: pilotwfc/address/addresscategory
+update:
+    redirect: pilotwfc/address/addresscategory
+    redirectClose: pilotwfc/address/addresscategory
+preview: {  }

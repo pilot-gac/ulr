@@ -1,0 +1,49 @@
+fields:
+    title:
+        label: Назва
+        span: full
+        type: text
+    description:
+        label: Опис
+        size: small
+        span: full
+        type: textarea
+    email:
+        label: Email
+        span: auto
+        type: email
+    address:
+        label: Адреса
+        size: small
+        span: full
+        type: textarea
+    phone_main:
+        label: 'Основний телефон'
+        span: auto
+        type: text
+    phone_mobile:
+        label: Моб.телефон
+        span: auto
+        type: text
+    latitude:
+        label: Широта
+        span: auto
+        type: number
+    is_published:
+        label: Опубліковано
+        span: auto
+        type: switch
+    longitude:
+        label: Довгота
+        span: auto
+        type: number
+    city_id:
+        label: Місто
+        showSearch: true
+        span: auto
+        type: dropdown
+    category_id:
+        label: Категорія
+        showSearch: true
+        span: auto
+        type: dropdown

@@ -1,0 +1,18 @@
+uuid: e36f0c21-0347-4a50-b0bd-84631471c90c
+type: structure
+handle: Staticpages\Category
+name: Category
+drafts: false
+
+structure:
+    maxDepth: 2
+
+navigation:
+    parent: Staticpages\Post
+    icon: octo-icon-list-ul
+    order: 150
+
+fields:
+    description:
+        label: Description
+        type: textarea

@@ -1,0 +1,44 @@
+==
+{% component 'categoriesList' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/head/head-meta' %}
+        <title>{{ this.page.title }} — {{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        {% partial 'site/head/head-links' %}
+        {% partial 'site/head/head-scripts' %}
+        {% partial 'site/head/analytics-code' %}
+        <meta name="turbo-visit-control" content="reload" />
+    </head>
+    <body class="body">
+
+            {% partial 'site/head/header' %}
+
+        <!-- Content -->
+            <main class="main">
+            {% page %}
+            </main>
+
+        <!-- Footer -->
+            {% partial 'site/footer' %}
+            {% partial 'ulr_main/addpopup' %}
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{{ 'assets/js/script.js'|theme }}"></script>
+    <script src="{{ 'assets/js/materials.js'|theme }}"></script>
+<script>
+    document.querySelectorAll(".faq__item h3").forEach((item) => {
+        item.addEventListener("click", function () {
+            const faqItem = this.parentElement;
+            if (faqItem.classList.contains("active")) {
+                faqItem.classList.remove("active");
+            } else {
+                document.querySelectorAll(".faq__item").forEach((el) => el.classList.remove("active"));
+                faqItem.classList.add("active");
+            }
+        });
+    });
+</script>
+</html>

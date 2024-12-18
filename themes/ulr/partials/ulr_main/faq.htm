@@ -1,0 +1,15 @@
+<section class="faq">
+    <div class="container">
+        <div class="faq__inner">
+            <h2 class="faq__title">FAQ</h2>
+            <div class="faq__block">
+                {% for item in this.theme.faq %}
+                <div class="faq__item">
+                    <h3>{{ item.faq_title }}</h3>
+                    <p>{{ item.faq_text|raw }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

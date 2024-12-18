@@ -1,0 +1,32 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Drop table pilotwfc_addresses'
+    - builder_table_delete_pilotwfc_addresses.php
+v1.0.3:
+    - 'Drop table pilotwfc_addresses_categories'
+    - builder_table_delete_pilotwfc_addresses_categories.php
+v1.0.4:
+    - 'Created table pilotwfc_address_post'
+    - builder_table_create_pilotwfc_address_post.php
+v1.0.5:
+    - 'Updated table pilotwfc_address_post'
+    - builder_table_update_pilotwfc_address_post.php
+v1.0.6:
+    - 'Created table pilotwfc_address_cities'
+    - builder_table_create_pilotwfc_address_cities.php
+v1.0.7:
+    - 'Created table pilotwfc_address_category'
+    - builder_table_create_pilotwfc_address_category.php
+v1.0.8:
+    - 'Created table pilotwfc_address_post_categories many to many relation'
+    - migration_108.php
+v1.0.9:
+    - 'add_name_to_pilotwfc_address_category many to many relation'
+    - add_name_to_pilotwfc_address_category.php
+v1.0.10:
+    - 'Updated table pilotwfc_address_post'
+    - builder_table_update_pilotwfc_address_post_2.php
+v1.0.11:
+    - 'Updated table pilotwfc_address_post'
+    - builder_table_update_pilotwfc_address_post_3.php

@@ -1,0 +1,32 @@
+url = "/"
+layout = "main"
+title = "Головна"
+meta_title = "Welcome"
+
+[collection blog]
+handle = "Blog\Post"
+
+[resources]
+less[] = "pages/index.less"
+vars[howItsMadeCmsTemplate] = "cms:cms-page:index.htm"
+==
+<?php
+use Tailor\Models\EntryRecord;
+public function onStart()
+{
+    $this['otherPosts'] = EntryRecord::inSection('Blog\Post')
+        ->whereDoesntHave('categories', function ($query) {
+            $query->where('slug', 'news');
+        })
+        ->orderBy('published_at', 'desc')
+        ->take(4)
+        ->get();
+}
+?>
+==
+{% partial 'ulr_main/hero' %}
+{% partial 'ulr_main/clause' %}
+{% partial 'ulr_main/goals' %}
+{% partial 'ulr_main/team' %}
+{% partial 'ulr_main/partners' %}
+{% partial 'ulr_main/faq' %}

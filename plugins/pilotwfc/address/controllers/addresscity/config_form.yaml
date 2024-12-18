@@ -1,0 +1,10 @@
+name: AddressCity
+form: $/pilotwfc/address/models/addresscity/fields.yaml
+modelClass: Pilotwfc\Address\Models\AddressCity
+defaultRedirect: pilotwfc/address/addresscity
+create:
+    redirect: 'pilotwfc/address/addresscity/update/:id'
+    redirectClose: pilotwfc/address/addresscity
+update:
+    redirect: pilotwfc/address/addresscity
+    redirectClose: pilotwfc/address/addresscity

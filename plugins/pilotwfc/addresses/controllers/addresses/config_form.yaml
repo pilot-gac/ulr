@@ -1,0 +1,45 @@
+modelClass: PilotWFC\Addresses\Models\Address
+
+form:
+    fields:
+        title:
+            label: Название
+            span: full
+        description:
+            label: Описание
+            type: richeditor
+            span: full
+        type:
+            label: Тип
+            type: dropdown
+            options:
+                стрільбище: Стрільбище
+                тир: Тир
+                угіддя: Угіддя
+                змагання: Змагання
+                корисні адреси: Корисні адреси
+        phone_main:
+            label: Основной телефон
+            span: left
+        phone_mobile:
+            label: Мобильный телефон
+            span: right
+        email:
+            label: Email
+            span: full
+        city:
+            label: Город
+            span: left
+        address:
+            label: Адрес
+            span: right
+        latitude:
+            label: Широта
+            span: left
+        longitude:
+            label: Долгота
+            span: right
+        category:
+            label: Категория
+            type: relation
+            span: full

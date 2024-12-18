@@ -1,0 +1,128 @@
+<section class="addpopup">
+    <div class="container">
+        <div class="addpopup__inner">
+            <button class="addpopup__close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M1.39655 1.125L9 8.86185M9 8.86185L16.875 16.875M9 8.86185L1.125 16.875M9 8.86185L16.6034 1.12501" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <div class="addpopup__box" id="competition">
+                <div class="addpopup__image">
+                    <img src="{{ 'assets/images/addpopup/1.jpg' | theme }}" alt="">
+                </div>
+                <div class="addpopup__content">
+                    <h4 class="addpopup__title">Додати тир або стрільбище</h4>
+                    <form class="addpopup__form content__form" action="#">
+                        <div class="content__form-buttons">
+                            <input type="hidden" class="type-status" name="tir-type" value="Тир">
+                            <button class="toggle-button selected" type="button" data-status="Тир">Тир</button>
+                            <button class="toggle-button" type="button" data-status="Стрільбище">Стрільбище</button>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="place-name" name="placeName" class="required">
+                            <label for="place-name">Назва місця<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="place-location" name="placeLocation" class="required">
+                            <label for="place-location">Локація місця<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="place-contacts" name="placeContacts" class="required">
+                            <label for="place-contacts">Контакти місця<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <textarea name="message" id="name-message" cols="30" rows="10"></textarea>
+                            <label for="name-message">Повідомлення</label>
+                        </div>
+                        <label class="addpopup__form-agree content__form-agree">
+                            <input type="checkbox" name="checkbox" class="agree__checkbox required">
+                            <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                        </label>
+                        <button class="addpopup__form-btn btn" type="submit">Відправити</button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="addpopup__box" id="range">
+                <div class="addpopup__image">
+                    <img src="{{ 'assets/images/addpopup/2.jpg' | theme }}" alt="">
+                </div>
+                <div class="addpopup__content">
+                    <h4 class="addpopup__title">Додати стрілецьке змагання</h4>
+                    <form class="addpopup__form content__form" action="#">
+                        <div class="content__form-block">
+                            <input type="text" id="event-name" name="eventName" class="required">
+                            <label for="event-name">Назва заходу<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="event-location" name="eventLocation" class="required">
+                            <label for="event-location">Місце проведення<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="event-organizer" name="eventOrganizer" class="required">
+                            <label for="event-organizer">Організатор<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="event-link" name="eventLink">
+                            <label for="event-link">Посилання на подію (якщо є)</label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="organizer-contacts" name="organizerContacts" class="required">
+                            <label for="organizer-contacts">Контакти організаторів<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="user-contacts" name="userContacts" class="required">
+                            <label for="user-contacts">Контакт користувача, який додає подію<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                            <label for="message">Повідомлення</label>
+                        </div>
+                        <label class="addpopup__form-agree content__form-agree">
+                            <input type="checkbox" name="agreeCheckbox" class="agree__checkbox required">
+                            <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                        </label>
+                        <button class="addpopup__form-btn btn" type="submit">Відправити</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="addpopup__box" id="hunting">
+                <div class="addpopup__image">
+                    <img src="{{ 'assets/images/addpopup/3.jpg' | theme }}" alt="">
+                </div>
+                <div class="addpopup__content">
+                    <h4 class="addpopup__title">Додати мисливське угіддя</h4>
+                    <form class="addpopup__form content__form" action="#">
+                        <div class="content__form-block">
+                            <input type="text" id="hunting-ground-name" name="huntingGroundName" class="required">
+                            <label for="hunting-ground-name">Назва угідь<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="hunting-ground-location" name="huntingGroundLocation" class="required">
+                            <label for="hunting-ground-location">Локація угідь<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="management-contacts" name="managementContacts" class="required">
+                            <label for="management-contacts">Контакти керівництва або управителів угідь<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="user-contact" name="userContact" class="required">
+                            <label for="user-contact">Контакт користувача, який додає угіддя<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <textarea name="message" id="user-message" cols="30" rows="10"></textarea>
+                            <label for="user-message">Повідомлення</label>
+                        </div>
+                        <label class="addpopup__form-agree content__form-agree">
+                            <input type="checkbox" name="checkbox" class="agree__checkbox required">
+                            <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                        </label>
+                        <button class="addpopup__form-btn btn" type="submit">Відправити</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

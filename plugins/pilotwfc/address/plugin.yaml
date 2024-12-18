@@ -1,0 +1,28 @@
+plugin:
+    name: 'pilotwfc.address::lang.plugin.name'
+    description: 'pilotwfc.address::lang.plugin.description'
+    author: Pilotwfc
+    icon: oc-icon-map-marker
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Адреси
+        url: pilotwfc/address/addresspost
+        icon: icon-map-marker
+        sideMenu:
+            side-menu-item3:
+                label: 'Додати адресу'
+                url: pilotwfc/address/addresspost/create
+                icon: icon-plus
+            side-menu-item:
+                label: 'Всі адреси'
+                url: pilotwfc/address/addresspost
+                icon: icon-road
+            side-menu-item2:
+                label: Міста
+                url: pilotwfc/address/addresscity
+                icon: icon-building
+            side-menu-item4:
+                label: Категорії
+                url: pilotwfc/address/addresscategory
+                icon: icon-sliders

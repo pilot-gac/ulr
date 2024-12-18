@@ -1,0 +1,27 @@
+modelClass: PilotWFC\Addresses\Models\Address
+
+list:
+    toolbar:
+        buttons:
+            create:
+                label: Додати нову адресу
+                class: btn-primary
+    columns:
+        title:
+            label: Название
+            searchable: true
+        type:
+            label: Тип
+        city:
+            label: Город
+        address:
+            label: Адрес
+        phone_main:
+            label: Основной телефон
+        phone_mobile:
+            label: Мобильный телефон
+        email:
+            label: Email
+        category:
+            label: Категория
+            relation: category

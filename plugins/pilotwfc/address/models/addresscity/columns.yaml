@@ -1,0 +1,7 @@
+columns:
+    city:
+        label: Місто
+        type: text
+    slug:
+        label: URL
+        type: text

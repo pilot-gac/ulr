@@ -1,0 +1,12 @@
+list: $/pilotwfc/address/models/addresspost/columns.yaml
+modelClass: Pilotwfc\Address\Models\AddressPost
+title: AddressPost
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'pilotwfc/address/addresspost/update/:id'

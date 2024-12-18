@@ -1,0 +1,22 @@
+<section class="partners">
+    <div class="container">
+        <div class="partners__inner">
+            <h2 class="partners__title">Наші партнери</h2>
+            <div class="partners__slider">
+                <div class="swiper-wrapper">
+                    {% for partner in this.theme.partners %}
+                    <a class="partners__item swiper-slide {{ loop.index in [1, 6] ? 'partners__item-large' }}"
+                       href="{{ partner.partners_url }}"
+                       target="_blank">
+                        <div class="partners__item-image">
+                            <img src="{{ partner.partners_img|media }}" alt="{{ partner.partners_name }}">
+                        </div>
+                        <p class="partners__item-name">{{ partner.partners_name }}</p>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="partners__slider-pagination slider-pagination"></div>
+        </div>
+    </div>
+</section>

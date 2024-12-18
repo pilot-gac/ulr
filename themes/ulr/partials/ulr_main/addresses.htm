@@ -1,0 +1,266 @@
+<section class="addresses">
+    <div class="container">
+        {% partial 'ulr_main/pages-breadcrumb' %}
+        <div class="addresses__inner">
+            <h1 class="addresses__title">
+                Корисні адреси
+                {% if currentCategory %}
+                <h2>Категорія: {{ currentCategory.name }}</h2>
+                {% endif %}
+            </h1>
+
+            <form class="addresses__form" action="#">
+                <div class="content__form-buttons addresses__form-buttons">
+                    <!-- Кнопка "Всі" -->
+                    <button type="button"
+                            class="toggle-button {% if not currentCategory %}selected{% endif %}"
+                            data-status="Всі"
+                            onclick="window.location.href='{{ 'addresses'|page }}'">
+                        Всі
+                    </button>
+
+                    <!-- Динамические категории -->
+                    {% for category in categories %}
+                    <button type="button"
+                            class="toggle-button {% if currentCategory and currentCategory.id == category.id %}selected{% endif %}"
+                            data-status="{{ category.name }}"
+                            onclick="window.location.href='/addresses/{{ category.slug  }}'">
+                        {{ category.name }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </form>
+
+        </div>
+
+        <div class="addresses__content">
+                {% for address in addresses %}
+                <div class="addresses__item">
+                    <ul class="addresses__type">
+                        <li class="type-{{ address.category.slug }}">
+                            <a href="{{ url('addresses', { slug: address.category.slug }) }}">
+                                <p>{{ address.category.name }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <h3>{{ address.title }}</h3>
+                    <p>{{ address.description }}</p>
+                    <div class="addresses__block">
+                        {% if address.phone_main %}
+                        <div class="addresses__block-item">
+                            <p class="addresses__block-name">Стаціонарний</p>
+                            <a href="tel:{{ address.phone_main }}">{{ address.phone_main }}</a>
+                        </div>
+                        {% endif %}
+                        {% if address.phone_mobile %}
+                        <div class="addresses__block-item">
+                            <p class="addresses__block-name">Мобільний</p>
+                            <a href="tel:{{ address.phone_mobile }}">{{ address.phone_mobile }}</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if address.email %}
+                    <div class="addresses__block-item">
+                        <p class="addresses__block-name">Електронна пошта</p>
+                        <a href="mailto:{{ address.email }}">{{ address.email }}</a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <!--            <div class="addresses__content">-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-competition">-->
+<!--                            <p>Змагання</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-shooting-range">-->
+<!--                            <p>Стрільбище</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-shooting-gallery">-->
+<!--                            <p>Тир</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-land">-->
+<!--                            <p>Угіддя</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-adress">-->
+<!--                            <p>Корисні адреси</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-shooting-range">-->
+<!--                            <p>Стрільбище</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-shooting-gallery">-->
+<!--                            <p>Тир</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="addresses__item">-->
+<!--                    <ul class="addresses__type">-->
+<!--                        <li class="type-land">-->
+<!--                            <p>Угіддя</p>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <h3>Війна, криза, пандемія - нові проблеми чи нові можливості?</h3>-->
+<!--                    <p>Війна, криза, пандемія - нові проблеми чи нові можливості?</p>-->
+<!--                    <div class="addresses__block">-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Стаціонарний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                        <div class="addresses__block-item">-->
+<!--                            <p class="addresses__block-name">Мобільний</p>-->
+<!--                            <a href="tel:+380631786456">+38(063) 178-64-56</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="addresses__block-item">-->
+<!--                        <p class="addresses__block-name">Електронна пошта</p>-->
+<!--                        <a href="mailto:marketing@ulr.com.ua">marketing@ulr.com.ua</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="pages-btns addresses__pages">
+                <a class="pages-btns-item active" href="#">1</a>
+                <a class="pages-btns-item" href="#">2</a>
+                <a class="pages-btns-item" href="#">3</a>
+            </div>
+        </div>
+    </div>
+</section>

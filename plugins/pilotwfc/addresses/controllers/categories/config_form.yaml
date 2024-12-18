@@ -1,0 +1,10 @@
+modelClass: PilotWFC\Addresses\Models\Category
+
+form:
+    fields:
+        name:
+            label: Название
+            span: full
+        slug:
+            label: Уникальный код
+            span: full

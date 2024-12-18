@@ -1,0 +1,66 @@
+<!-- sidebar categories -->
+<div class="materials__filter filter__select">
+    <div class="filter__select-btn--box">
+        <button class="filter__select-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12"
+                 fill="none">
+                <path d="M1.75 2.82227H3.17838M12.25 2.82227H7.00008" stroke="#006438" stroke-width="2"
+                      stroke-linecap="square"/>
+                <path d="M1.75 9.07593H7.34751M12.25 9.07593H10.8218" stroke="#006438" stroke-width="2"
+                      stroke-linecap="square"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M4.91487 4.55923C5.87426 4.55923 6.65201 3.78149 6.65201 2.8221C6.65201 1.8627 5.87426 1.08496 4.91487 1.08496C3.95548 1.08496 3.17773 1.8627 3.17773 2.8221C3.17773 3.78149 3.95548 4.55923 4.91487 4.55923Z"
+                      stroke="#006438" stroke-width="2" stroke-linecap="square"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M9.08479 10.8131C10.0442 10.8131 10.8219 10.0354 10.8219 9.076C10.8219 8.11662 10.0442 7.33887 9.08479 7.33887C8.12541 7.33887 7.34766 8.11662 7.34766 9.076C7.34766 10.0354 8.12541 10.8131 9.08479 10.8131Z"
+                      stroke="#006438" stroke-width="2" stroke-linecap="square"/>
+            </svg>
+            Фільтр
+        </button>
+        <button class="filter__select-categories">Всі матеріали</button>
+    </div>
+    {#
+    <div class="filter__select-item">
+        <label>
+                        <span>
+                            <input type="radio" name="filter-name" value="all" checked>
+                            <span>Всі матеріали</span>
+                        </span>
+        </label>
+    </div>
+    #}
+    <div class="filter__select-content">
+        {% for categoryculture in blogcultureCategories %}
+        <div class="filter__select-item{% if category.slug == this.param('slug') %} active{% endif %}">
+            <label>
+                               <span>
+                                   <a href="{{ 'blogculture/category'|page({ slug: category.slug }) }}" style="font-size: 18px;color: #222">
+                                        <input type="radio" name="filter-name" {% if category.slug== this.param('slug') %} checked{% endif %}>
+                                        {{ category.title }}
+                                       </a>
+                            </span>
+            </label>
+        </div>
+        {% endfor %}
+        <!-- menu from admin panel -->
+        {% for menuItem in this.theme.header_menu_prosvita %}
+        {% if menuItem.header_menu_enabled %}
+        <div class="filter__select-item{% if category.slug == this.param('slug') %} active{% endif %}">
+            <label>
+                               <span>
+                                   <a href="{{ menuItem.header_menu_link }}">
+                                <input type="radio" name="filter-name" {% if category.slug== this.param('slug') %} checked{% endif %}>
+                                <span>{{ menuItem.header_menu_name }}</span>
+                                       </a>
+                            </span>
+            </label>
+        </div>
+
+
+        {% endif %}
+        {% endfor %}
+
+    </div>
+
+
+</div>

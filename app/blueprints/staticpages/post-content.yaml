@@ -1,0 +1,39 @@
+uuid: e77a95ac-850e-491a-b985-b44e460429d5
+handle: Staticpages\PostContent
+type: mixin
+name: Staticpages Post Content
+
+fields:
+    banner:
+        tab: Manage
+        label: Banner
+        type: fileupload
+        mode: image
+        maxFiles: 1
+
+    categories:
+        tab: Manage
+        label: Categories
+        commentAbove: 'Select categories the blog post belongs to'
+        type: entries
+        source: Staticpages\Category
+
+    featured_text:
+        tab: Featured
+        label: Featured Text
+        type: textarea
+        size: small
+
+    gallery:
+        label: Gallery
+        type: fileupload
+        mode: image
+        span: adaptive
+        tab: Gallery
+
+    gallery_media:
+        label: Media
+        type: mediafinder
+        mode: image
+        span: adaptive
+        tab: Media

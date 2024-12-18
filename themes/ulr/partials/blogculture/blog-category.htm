@@ -1,0 +1,58 @@
+[collection blogCategories]
+handle = "Blogculture\Category"
+
+[collection BlogPosts]
+handle = "Blogculture\Post"
+==
+<section class="materials">
+    <div class="container">
+        {% partial 'blogculture/blog-breadcrumb' %}
+
+        <div class="materials__inner">
+            <h1 class="materials__title">{{ category.title }} </h1>
+
+
+                <!-- sidebar categories -->
+                {% partial 'blogculture/blog-sidebar' %}
+                <!-- main content -->
+                <div class="materials__result-content">
+                    <div class="materials__result materials__result-grid">
+                        {% set posts = blog.whereRelation('categories', 'slug', category.slug).paginate(8) %}
+                        {% put pageTitle = 'Articles in ' ~ category.title %}
+                        {% for post in posts %}
+                        <div class="materials__item">
+                            <div class="clause__image">
+                                <img src="{{ post.banner ? post.banner.path : 'path/to/default/image.jpg' }}" alt="{{ post.title }}">
+                            </div>
+                            <div class="clause__content">
+                                <div class="clause__top">
+                                    <p>{{ post.published_at_date|date('j F') }}</p>
+                                    <div class="clause__time">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M8 1.38477C4.14027 1.38477 1 4.52503 1 8.38477C1 12.2445 4.14027 15.3848 8 15.3848C11.8597 15.3848 15 12.2445 15 8.38477C15 4.52503 11.8597 1.38477 8 1.38477Z" stroke="white"></path>
+                                            <path d="M10 10.0598L8 9.01356V6.05981" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                        <p>{{ post.reading_time }} хв. читання</p>
+                                    </div>
+                                    <p>
+                                        {% for category in post.categories %}
+                                        <span>#{{ category.title }}</span>
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                                <a href="{{ 'blogculture/post'|page({ slug: post.slug }) }}">
+                                    <p>{{ post.title }}<br>{{ post.featured_text }}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="pages-btns materials__pages">
+                        {{ pager(posts) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

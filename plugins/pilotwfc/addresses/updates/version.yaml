@@ -1,0 +1,5 @@
+'1.0.3':
+    - 'Initialize plugin.'
+    - addresses_and_categories_to_pilotwfc_addresses.php
+'1.0.0':
+    - 'First version of addresses'

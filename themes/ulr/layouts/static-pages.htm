@@ -1,0 +1,73 @@
+[childPages]
+
+[staticPage]
+useContent = 1
+default = 0
+
+[global]
+handle = "Staticpages\Config"
+==
+{% component 'categoriesList' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/head/head-meta' %}
+        <title>{{ this.page.title }} — {{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        {% partial 'site/head/head-links' %}
+        {% partial 'site/head/head-scripts' %}
+        {% partial 'site/head/analytics-code' %}
+        <meta name="turbo-visit-control" content="reload" />
+    </head>
+    <body class="body layout-home">
+
+            {% partial 'site/head/header' %}
+
+        <!-- Content -->
+            <main class="main">
+            <section class="article">
+            <div class="container" style="margin-bottom:50px">
+             {% partial 'ulr_main/pages-breadcrumb' %}
+            <div class="article__content">
+            {% page %}
+            </section>
+            </div>
+            </div>
+            </main>
+
+        <!-- Footer -->
+            {% partial 'site/footer' %}
+            {% partial 'ulr_main/addpopup' %}
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{{ 'assets/js/script.js'|theme }}"></script>
+    <script src="{{ 'assets/js/article.js'|theme }}"></script>
+    <script>
+        let teamSwiper = new Swiper(".team__slider", {
+            loop: true,
+            spaceBetween: 17,
+            slidesPerView: "auto",
+            allowTouchMove: true,
+            navigation: {
+                nextEl: ".team__slider-next",
+                prevEl: ".team__slider-prev",
+            },
+            breakpoints: {
+                768: {
+                    spaceBetween: 20,
+                },
+                999: {
+                    spaceBetween: 32,
+                },
+                1279: {
+                    spaceBetween: 62,
+                },
+            },
+            pagination: {
+                el: ".team__slider-pagination",
+                clickable: true
+            }
+        });
+    </script>
+</html>

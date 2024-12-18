@@ -1,0 +1,499 @@
+name: ULR
+description: 'Ibis CMS theme. hunter-counsil.com.ua'
+author: Pilot WFC
+homepage: 'http://ibis.net.ua'
+code: ''
+form:
+    tabs:
+        fields:
+            pre_header_enabled:
+                label: Увімкнути Pre-Header
+                type: switch
+                tab: Header
+            pre_header_text:
+                label: Текст
+                type: text
+                tab: Header
+                trigger:
+                    action: show
+                    field: pre_header_enabled
+                    condition: checked
+
+            pre_header_image_left:
+                label: Фото (ліворуч)
+                type: mediafinder
+                mode: image
+                span: auto
+                tab: Header
+                trigger:
+                    action: show
+                    field: pre_header_enabled
+                    condition: checked
+
+            pre_header_image_right:
+                label: Фото (праворуч)
+                type: mediafinder
+                mode: image
+                span: auto
+                tab: Header
+                trigger:
+                    action: show
+                    field: pre_header_enabled
+                    condition: checked
+            logo_header:
+                label: Логотип кольоровий
+                type: mediafinder
+                mode: image
+                span: auto
+                tab: Header
+            logo_header_white:
+                label: Логотип білий
+                type: mediafinder
+                mode: image
+                span: auto
+                tab: Header
+            header_menu_prosvita_name:
+                label: Меню ПРОСВІТА
+                type: text
+                span: auto
+                tab: Header
+            header_menu_prosvita_link:
+                label: URL
+                type: text
+                span: auto
+                tab: Header
+            header_menu_prosvita:
+                label: Меню ПРОСВІТА (нижче БЛОГІВ)
+                type: repeater
+                titleFrom: header_menu_prosvita_name
+                tab: Header
+                form:
+                    fields:
+                        header_menu_name:
+                            label: Назва
+                            type: text
+                        header_menu_link:
+                            label: Послання
+                            type: text
+                        header_menu_enabled:
+                            label: Увімкнути пункт
+                            type: switch
+                            default: true
+                        header_menu_children:
+                            label: Підменю
+                            type: repeater
+                            form:
+                                fields:
+                                    submenu_name:
+                                        label: Назва Підменю
+                                        type: text
+                                    submenu_link:
+                                        label: Послання
+                                        type: text
+                                    submenu_enabled:
+                                        label: Увімкнути підпункт
+                                        type: switch
+                                        default: true
+            header_menu_kultura_name:
+                label: Меню КУЛЬТУРА (нижче БЛОГІВ)
+                type: text
+                span: auto
+                tab: Header
+            header_menu_kultura_link:
+                label: URL
+                type: text
+                span: auto
+                tab: Header
+            header_menu_kultura:
+                label: Меню КУЛЬТУРА
+                type: repeater
+                titleFrom: header_menu_name
+                tab: Header
+                form:
+                    fields:
+                        header_menu_name:
+                            label: Назва
+                            type: text
+                        header_menu_link:
+                            label: Послання
+                            type: text
+                        header_menu_enabled:
+                            label: Увімкнути пункт
+                            type: switch
+                            default: true
+                        header_menu_children:
+                            label: Підменю
+                            type: repeater
+                            form:
+                                fields:
+                                    submenu_name:
+                                        label: Назва Підменю
+                                        type: text
+                                    submenu_link:
+                                        label: Послання
+                                        type: text
+                                    submenu_enabled:
+                                        label: Увімкнути підпункт
+                                        type: switch
+                                        default: true
+            header_menu_diyalnist:
+                label: Меню ДІЯЛЬНІСТЬ
+                type: repeater
+                titleFrom: header_menu_diyalnist_name
+                tab: Header
+                form:
+                    fields:
+                        header_menu_name:
+                            label: Назва
+                            type: text
+                        header_menu_link:
+                            label: Послання
+                            type: text
+                        header_menu_enabled:
+                            label: Увімкнути пункт
+                            type: switch
+                            default: true
+                        header_menu_children:
+                            label: Підменю
+                            type: repeater
+                            form:
+                                fields:
+                                    submenu_name:
+                                        label: Назва Підменю
+                                        type: text
+                                    submenu_link:
+                                        label: Послання
+                                        type: text
+                                    submenu_enabled:
+                                        label: Увімкнути підпункт
+                                        type: switch
+                                        default: true
+            header_menu_contacts:
+                label: Меню КОНТАКТИ
+                type: repeater
+                titleFrom: header_menu_contacts_name
+                tab: Header
+                form:
+                    fields:
+                        header_menu_name:
+                            label: Назва
+                            type: text
+                        header_menu_link:
+                            label: Послання
+                            type: text
+                        header_menu_enabled:
+                            label: Увімкнути пункт
+                            type: switch
+                            default: true
+            header_menu_faq:
+                label: Меню FAQ
+                type: repeater
+                titleFrom: header_menu_faq_name
+                tab: Header
+                form:
+                    fields:
+                        header_menu_name:
+                            label: Назва
+                            type: text
+                        header_menu_link:
+                            label: Послання
+                            type: text
+                        header_menu_enabled:
+                            label: Увімкнути пункт
+                            type: switch
+                            default: true
+            header_menu_join:
+                label: Меню Долучитись до ГС
+                type: repeater
+                titleFrom: header_menu_join_name
+                tab: Header
+                form:
+                    fields:
+                        header_menu_name:
+                            label: Назва
+                            type: text
+                        header_menu_link:
+                            label: Послання
+                            type: text
+                        header_menu_enabled:
+                            label: Увімкнути пункт
+                            type: switch
+                            default: true
+            phone:
+                label: Телефон
+                type: text
+                span: auto
+                tab: Header
+            email:
+                label: E-mail
+                type: text
+                span: auto
+                tab: Header
+            telegram:
+                label: telegram
+                type: text
+                span: auto
+                tab: Header
+            facebook:
+                label: facebook
+                type: text
+                span: auto
+                tab: Header
+            instagram:
+                label: instagram
+                type: text
+                span: auto
+                tab: Header
+            youtube:
+                label: youtube
+                type: text
+                span: auto
+                tab: Header
+            logo_footer:
+                label: Логотип (logo_footer)
+                type: mediafinder
+                mode: image
+                tab: Footer
+            footer_menu_name_1:
+                label: Меню 1
+                type: text
+                span: auto
+                tab: Footer
+            footer_menu_link_1:
+                label: Послання 1
+                type: text
+                span: auto
+                tab: Footer
+            footer_menu_name_2:
+                label: Меню 2
+                type: text
+                span: auto
+                tab: Footer
+            footer_menu_link_2:
+                label: Послання 2
+                type: text
+                span: auto
+                tab: Footer
+            footer_menu_name_3:
+                label: Меню 3
+                type: text
+                span: auto
+                tab: Footer
+            footer_menu_link_3:
+                label: Послання 3
+                type: text
+                span: auto
+                tab: Footer
+            slider_1:
+                label: Додати баннер в слайдер
+                type: repeater
+                titleFrom: slider_1_name
+                tab: Slider
+                form:
+                    fields:
+                        slider_bgr:
+                            label: Бекграунд
+                            type: mediafinder
+                            span: auto
+                            mode: image
+                        slider_first_heading:
+                            label: Заголовок
+                            type: text
+                            tab: Slider
+                        slider_first_text:
+                            label: Текст
+                            type: text
+                            tab: Slider
+                        slider_first_button:
+                            label: Текст княпки
+                            type: text
+                            span: auto
+                            tab: Slider
+                        slider_first_button_url:
+                            label: Url княпки
+                            type: text
+                            span: auto
+                            tab: Slider
+            goals_title:
+                label: Заголовок
+                type: text
+                tab: Основне
+            goals_text:
+                label: Текст (праворуч)
+                type: richeditor
+                tab: Основне
+            goals_button_url:
+                label: Надпис на княпці
+                type: text
+                span: auto
+                tab: Основне
+            goals_url:
+                label: Посилання
+                type: text
+                span: auto
+                tab: Основне
+            goals_bg:
+                label: Background
+                type: mediafinder
+                mode: image
+                span: auto
+                tab: Основне
+            goals_front:
+                label: Front
+                type: mediafinder
+                mode: image
+                span: auto
+                tab: Основне
+            team:
+                label: Команда
+                type: repeater
+                titleFrom: teams_name
+                tab: Команда
+                form:
+                    fields:
+                        team_img:
+                            label: Фото
+                            type: mediafinder
+                            mode: image
+                        team_name:
+                            label: Імʼя, Прізвище
+                            span: auto
+                            type: text
+                        team_job_title:
+                            label: Посада
+                            span: auto
+                            type: text
+                        team_url:
+                            label: URL
+                            span: auto
+                            type: text
+            partners:
+                label: Партнери
+                type: repeater
+                titleFrom: partners_name
+                tab: Партнери
+                form:
+                    fields:
+                        partners_img:
+                            label: Фото
+                            type: mediafinder
+                            mode: image
+                        partners_name:
+                            label: Назва
+                            span: auto
+                            type: text
+                        partners_url:
+                            label: URL
+                            span: auto
+                            type: text
+            faq:
+                label: Додати FAQ
+                type: repeater
+                titleFrom: faq
+                tab: FAQ
+                form:
+                    fields:
+                        faq_title:
+                            label: Питання
+                            type: text
+                            tab: FAQ
+                        faq_text:
+                            label: Текст
+                            type: richeditor
+                            tab: FAQ
+            join_gs_bgr_1:
+                label: Фото 1
+                type: mediafinder
+                mode: image
+                tab: Долучитись до ГС
+            composer update:
+                label: Заголовок
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_text_1:
+                label: Текст
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_button_1:
+                label: Текст княпки
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_button_url_1:
+                label: Url княпки data-target
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_bgr_2:
+                label: Фото 2
+                type: mediafinder
+                mode: image
+                tab: Долучитись до ГС
+            join_gs_heading_2:
+                label: Заголовок
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_text_2:
+                label: Текст
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_button_2:
+                label: Текст княпки
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_button_url_2:
+                label: Url княпки data-target
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_bgr_3:
+                label: Фото 3
+                type: mediafinder
+                mode: image
+                tab: Долучитись до ГС
+            join_gs_heading_3:
+                label: Заголовок
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_text_3:
+                label: Текст
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_button_3:
+                label: Текст княпки
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            join_gs_button_url_3:
+                label: Url княпки data-target
+                type: text
+                span: auto
+                tab: Долучитись до ГС
+            data_banner:
+                label: Баннер (зверху)
+                type: fileupload
+                mode: file
+                span: auto
+                tab: Обробка даних
+            warranty_title:
+                label: Заголовок
+                type: text
+                span: auto
+                tab: Обробка даних
+            warranty_text:
+                label: Текст
+                type: richeditor
+                tab: Обробка даних
+            warranty_banner_button_url_2:
+                label: Url княпки
+                type: text
+                span: auto
+                tab: Обробка даних
+

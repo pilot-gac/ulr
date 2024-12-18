@@ -1,0 +1,19 @@
+<section class="goals">
+    <div class="container">
+        <div class="goals__inner">
+            <div class="goals__block">
+                <div class="goals__top">
+                    <h2 class="goals__title">{% set words = this.theme.goals_title|split(' ') %}
+                        {{ words[0] }}<br>{{ words|slice(1)|join(' ')|raw }}
+                    </h2>
+                    <div class="goals__content">
+                        <p> {{ this.theme.goals_text | raw }}</p>
+                    </div>
+                </div>
+                <a class="goals__btn btn-2" href="{{ this.theme.goals_url }}">{{ this.theme.goals_button_url }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="goals__front" style="background-image: url('{{this.theme.goals_front|media }}')"></div>
+    <div class="goals__bg" style="background-image: url('{{this.theme.goals_bg|media }}')"></div>
+</section>

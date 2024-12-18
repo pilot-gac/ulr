@@ -1,0 +1,120 @@
+[collection blogCategories]
+handle = "Blog\Category"
+
+[collection blogcultureCategories]
+handle = "Blogculture\Category"
+==
+<footer class="footer">
+    <div class="container">
+        <div class="footer__inner">
+            <div class="footer__wrapper">
+                <div class="footer__top">
+                    <a class="footer__logo" href="/">
+                        <img src="{{ this.theme.logo_footer | media }}" alt="logo">
+                    </a>
+                    <div class="footer__content">
+                        <div class="footer__block">
+                            <h4 class="footer__name">{{ this.theme.footer_menu_name_1 }}</h4>
+                            <ul>
+                                {% for category in blogCategories %}
+
+                                <li>
+                                    <a href="{{ 'blog/category'|page({ slug: category.slug }) }}">{{
+                                            category.title
+                                        }}</a>
+                                </li>
+
+                                {% endfor %}
+                                <!-- menu from admin panel -->
+                                {% for menuItem in this.theme.header_menu_prosvita %}
+                                {% if menuItem.header_menu_enabled %}
+                                <li>
+                                    <a href="{{ menuItem.header_menu_link }}">
+                                        {{ menuItem.header_menu_name }}
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="footer__block">
+                            <h4 class="footer__name">{{ this.theme.footer_menu_name_2 }}</h4>
+                            <!-- menu kultura -->
+                            <ul>
+                                {% for category in blogcultureCategories %}
+                                <li>
+                                    <a href="{{ 'blogculture/category'|page({ slug: category.slug }) }}">{{
+                                            category.title
+                                        }}</a>
+                                </li>
+                                {% endfor %}
+                                <!-- menu from admin panel -->
+                                {% for menuItem in this.theme.header_menu_kultura %}
+                                {% if menuItem.header_menu_enabled %}
+                                <li>
+                                    <a href="{{ menuItem.header_menu_link }}"> {{ menuItem.header_menu_name }}</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="footer__block">
+                            <h4 class="footer__name">{{ this.theme.footer_menu_name_3 }}</h4>
+                            <ul>
+                                {% for menuItem in this.theme.header_menu_diyalnist %}
+                                {% if menuItem.header_menu_enabled %}
+                                <li>
+                                    <a href="{{ menuItem.header_menu_link }}"> {{ menuItem.header_menu_name }}</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="footer__block">
+                            <h4 class="footer__name">Контакти</h4>
+                            <div class="footer__block-content">
+                                <div class="footer__feedback">
+                                    <a class="footer__feedback-item"
+                                       href="tel:{{ this.theme.phone | replace({'(': '', ')': '', ' ': '', '-': ''}) }}">{{
+                                            this.theme.phone
+                                        }}</a>
+                                    <a class="footer__feedback-item" href="mailto:info@ukr.com.ua">{{
+                                            this.theme.email
+                                        }}</a>
+                                </div>
+                                {% for menuItem in this.theme.header_menu_join %}
+                                <a class="footer__btn btn" href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                                {% endfor %}
+                                <div class="footer__social">
+                                    <a class="footer__social-item" href="{{ this.theme.telegram }}" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                             viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M1.22615 9.47091C1.22615 9.47091 10.0717 5.62929 13.1395 4.27661C14.3155 3.73554 18.3036 2.00411 18.3036 2.00411C18.3036 2.00411 20.1443 1.2466 19.9909 3.08625C19.9398 3.84375 19.5307 6.49501 19.1217 9.3627C18.5081 13.4207 17.8435 17.8575 17.8435 17.8575C17.8435 17.8575 17.7412 19.102 16.872 19.3184C16.0028 19.5349 14.5711 18.5609 14.3155 18.3445C14.111 18.1822 10.4807 15.7474 9.15132 14.557C8.79341 14.2324 8.38437 13.5831 9.20246 12.8256C11.0431 11.04 13.2417 8.82162 14.5711 7.41483C15.1847 6.76555 15.7982 5.25054 13.2417 7.09019C9.6115 9.74145 6.03238 12.2304 6.03238 12.2304C6.03238 12.2304 5.2143 12.7715 3.6804 12.2845C2.14649 11.7975 0.356936 11.1482 0.356936 11.1482C0.356936 11.1482 -0.870188 10.3366 1.22615 9.47091Z"
+                                                fill="#35AEE2"/>
+                                        </svg>
+                                    </a>
+                                    <a class="footer__social-item" href="{{ this.theme.facebook }}" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                             viewBox="0 0 20 20" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M5 6.61157H7.14286V4.6281C7.14286 3.74479 7.19 2.33702 7.85714 1.4876C8.55607 0.593058 9.41821 0 11.0714 0C13.7679 0 15 0.330579 15 0.330579L14.4643 3.47107C13.8904 3.27832 13.2884 3.16687 12.6786 3.1405C11.8425 3.1405 11.0714 3.32843 11.0714 4.13223V6.61157H14.6429V9.58678H11.0714V20H7.14286V9.58678H5V6.61157Z"
+                                                  fill="#1D52A1"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <p class="footer__copy">УЛР © 2024</p>
+                    <div class="footer__bottom-block">
+                        <a class="footer__bottom-link" href="#" target="_blank">Обробка персональних данних</a>
+                        <a class="footer__bottom-link" href="#" target="_blank">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

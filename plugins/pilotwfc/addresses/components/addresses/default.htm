@@ -1,0 +1,64 @@
+<section class="addresses">
+    <div class="container">
+        <h1>Корисні адреси</h1>
+        <div id="map" style="height: 400px; margin-bottom: 20px;"></div>
+        <div class="addresses__content">
+            {% for address in __SELF__.addresses %}
+            <div class="addresses__item">
+                <ul class="addresses__type">
+                    <li class="type-{{ address.type|lower }}">
+                        <p>{{ address.type }}</p>
+                    </li>
+                </ul>
+                <h3>{{ address.title }}</h3>
+                <p>{{ address.description }}</p>
+                <p><strong>Город:</strong> {{ address.city }}</p>
+                <p><strong>Адрес:</strong> {{ address.address }}</p>
+                <div class="addresses__block">
+                    {% if address.phone_main %}
+                    <div class="addresses__block-item">
+                        <p class="addresses__block-name">Стационарный</p>
+                        <a href="tel:{{ address.phone_main }}">{{ address.phone_main }}</a>
+                    </div>
+                    {% endif %}
+                    {% if address.phone_mobile %}
+                    <div class="addresses__block-item">
+                        <p class="addresses__block-name">Мобильный</p>
+                        <a href="tel:{{ address.phone_mobile }}">{{ address.phone_mobile }}</a>
+                    </div>
+                    {% endif %}
+                    {% if address.email %}
+                    <div class="addresses__block-item">
+                        <p class="addresses__block-name">Email</p>
+                        <a href="mailto:{{ address.email }}">{{ address.email }}</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: { lat: 50.4501, lng: 30.5234 }, // Default to Kyiv
+        });
+
+        const addresses = {{ __SELF__.addresses|json_encode|raw }};
+        addresses.forEach(address => {
+            if (address.latitude && address.longitude) {
+                new google.maps.Marker({
+                    position: { lat: parseFloat(address.latitude), lng: parseFloat(address.longitude) },
+                    map: map,
+                    title: address.title,
+                });
+            }
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
+</script>

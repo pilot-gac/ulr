@@ -1,0 +1,385 @@
+<section class="join">
+    <div class="container">
+        {% partial 'site/breadcrumb' %}
+        <div class="join__inner">
+            <h1 class="join__title">Долучитись до ГС</h1>
+            <div class="join__content">
+                <div class="join__item">
+                    <div class="join__image">
+                        <img src="{{ this.theme.join_gs_bgr_1 | media }}" alt="{{ this.theme.join_gs_heading_1 }}">
+                    </div>
+                    <div class="join__item-content">
+                        <h4 class="join__name">{{ this.theme.join_gs_heading_1 }}</h4>
+                        <button class="join__btn" data-target="joinuser__form-first">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <path d="M8.33236 15.4961L14.999 8.8025M8.33237 2.10891L14.999 8.8025M14.999 8.8025L0.999023 8.8025" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="join__item">
+                    <div class="join__image">
+                        <img src="{{ this.theme.join_gs_bgr_2 | media }}" alt="{{ this.theme.join_gs_heading_2 }}">
+                    </div>
+                    <div class="join__item-content">
+                        <h4 class="join__name">{{ this.theme.join_gs_heading_2 }}</h4>
+                        <button class="join__btn" data-target="joinuser__form-second">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <path d="M8.33236 15.4961L14.999 8.8025M8.33237 2.10891L14.999 8.8025M14.999 8.8025L0.999023 8.8025" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="join__item">
+                    <div class="join__image">
+                        <img src="{{ this.theme.join_gs_bgr_3 | media }}" alt="{{ this.theme.join_gs_heading_3 }}">
+                    </div>
+                    <div class="join__item-content">
+                        <h4 class="join__name">{{ this.theme.join_gs_heading_3 }}</h4>
+                        <button class="join__btn" data-target="joinuser__form-second">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                <path d="M8.33236 15.4961L14.999 8.8025M8.33237 2.10891L14.999 8.8025M14.999 8.8025L0.999023 8.8025" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="joinuser">
+    <div class="container">
+        <div class="joinuser__inner">
+            <button class="joinuser__close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M1.39655 1.125L9 8.86185M9 8.86185L16.875 16.875M9 8.86185L1.125 16.875M9 8.86185L16.6034 1.12501" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <h4 class="joinuser__title">Долучитись до ГС</h4>
+            <form class="joinuser__content joinuser__form-first form" action="#">
+                <div class="joinuser__content-step joinuser__step-1">
+                    <p class="joinuser__form-name">Контакти</p>
+                    <div class="content__form-block">
+                        <select class="person-type-select required" id="person-type-1" name="person-type">
+                            <option value="Цивільний" selected>Фізична особа - Цивільний</option>
+                            <option value="Військовий">Фізична особа - Військовий</option>
+                        </select>
+                        <label for="person-type-1">Фізична особа - цивільний<span>*</span></label>
+                    </div>
+                    <div class="joinuser__content-selected joinuser__selected-first">
+                        <div class="content__form-block">
+                            <input type="text" id="civil-occupation" name="Рід занять (Цивільний)">
+                            <label for="civil-occupation">Рід занять</label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="civil-number" name="Контактний номер телефону (Цивільний)" class="required">
+                            <label for="civil-number">Контактний номер телефону<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="email" id="civil-email" name="Контактний e-mail (Цивільний)" class="required">
+                            <label for="civil-email">Контактний e-mail<span>*</span></label>
+                        </div>
+                        <div class="joinuser__form-next">
+                            <div class="step-info">Крок 1/2</div>
+                            <button class="btn" type="button" onclick="showStep(event, 2)">Далі</button>
+                        </div>
+                    </div>
+                    <div class="joinuser__content-selected joinuser__selected-second">
+                        <div class="content__form-buttons">
+                            <input type="hidden" class="type-status" name="militaryStatus" value="Діючий військовий">
+                            <button class="toggle-button selected" type="button" data-status="Діючий військовий">Діючий військовий</button>
+                            <button class="toggle-button" type="button" data-status="Ветеран">Ветеран</button>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="military-occupation" name="Рід занять (Військовий)">
+                            <label for="military-occupation">Рід занять</label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="military-number-document" name="Номер документу, що засвідчує службу (Військовий)" class="required">
+                            <label for="military-number-document">Номер документу, що засвідчує службу<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="military-number" name="Контактний номер телефону (Військовий)" class="required">
+                            <label for="military-number">Контактний номер телефону<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="email" id="military-email" name="Контактний e-mail (Військовий)" class="required">
+                            <label for="military-email">Контактний e-mail<span>*</span></label>
+                        </div>
+
+                        <div class="joinuser__form-next">
+                            <div class="step-info">Крок 1/2</div>
+                            <button class="btn" type="button" onclick="showStep(event, 2)">Далі</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="joinuser__content-step joinuser__step-2">
+                    <p class="joinuser__form-name">Паспортні дані</p>
+                    <div class="content__form-block">
+                        <input type="text" id="pasport-full-name" name="pasport-full-name" class="required birthdate">
+                        <label for="pasport-full-name">ПІП<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="date" id="birthdate-1" name="birthdate" class="required birthdate">
+                        <label for="birthdate-1">Дата народження<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <label class="joinuser__form-file content__form-file photo-label">
+                                    <span class="preview-container">
+                                        <span class="preview-container-image">
+                                            <img class="preview" src="/" alt="Preview">
+                                        </span>
+                                        <button type="button" class="delete-button" onclick="removeImage(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                                                <path d="M0.989258 4.4155H3.28411M14.9892 4.4155H12.7954M10.6016 4.4155H5.57897M10.6016 4.4155V1.5H5.57897V4.4155M10.6016 4.4155H12.7954M5.57897 4.4155H3.28411M3.28411 4.4155V15.5H12.7954V4.4155M6.41608 7.21551V12.2093M9.44699 7.21551V12.2093" stroke="#9393A3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                            Видалити
+                                        </button>
+                                    </span>
+                            <span class="photo-label-text">Фото<span>*</span></span>
+                            <input type="file" id="photo" name="photo" class="photo-input required" accept="image/png, image/jpeg" onchange="handleFileUpload(event, this)"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M1 12.0385L1 13.8514C1 14.4858 1.51343 15 2.14677 15H4.2032M1 12.0385L1 2.14861C1 1.51425 1.51343 1 2.14677 1H13.8532C14.4866 1 15 1.51425 15 2.14861V9.27885M1 12.0385L3.46248 9.79626C3.88683 9.40987 4.53091 9.39686 4.97046 9.76581L7.384 11.7917M7.384 11.7917L11.5025 7.70455C11.9232 7.28713 12.5919 7.2591 13.0459 7.63987L15 9.27885M7.384 11.7917L4.2032 15M15 9.27885V13.8514C15 14.4858 14.4866 15 13.8532 15H4.2032M6.92084 5.28585C6.92084 6.18798 6.19068 6.91931 5.29 6.91931C4.38931 6.91931 3.65916 6.18798 3.65916 5.28585C3.65916 4.38372 4.38931 3.6524 5.29 3.6524C6.19068 3.6524 6.92084 4.38372 6.92084 5.28585Z" stroke="#222222" stroke-width="2"></path>
+                            </svg>
+                        </label>
+
+                        <p class="joinuser__form-descr">Png, Jpg - до 5мб. (35 x 45 - паспортний формат фото)</p>
+                    </div>
+                    <div class="content__form-box">
+                        <div class="content__form-block joinuser__form-series">
+                            <input type="text" id="passport-series" name="passport-series" class="required">
+                            <label for="passport-series">Серія<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="number" id="passport-number" name="passport-number" class="required">
+                            <label for="passport-number">Номер<span>*</span></label>
+                        </div>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="passport-issuer" name="passport-issuer" class="required">
+                        <label for="passport-issuer">Ким виданий<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="number" id="tax-id" name="tax-id" class="required">
+                        <label for="tax-id">ІПН<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="address" name="address" class="required">
+                        <label for="address">Місце проживання<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="hunter-license" name="hunter-license">
+                        <label for="hunter-license">Номер посвідчення мисливця</label>
+                    </div>
+
+                    <label class="joinuser__form-agree content__form-agree">
+                        <input type="checkbox" name="checkbox" class="agree__checkbox required">
+                        <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                    </label>
+
+                    <div class="joinuser__form-next">
+                        <div class="step-info">Крок 2/2</div>
+                        <button class="btn" type="submit">Відправити</button>
+                    </div>
+                </div>
+            </form>
+
+            <form class="joinuser__content joinuser__form-second form" action="#">
+                <div class="joinuser__content-step joinuser__step-1">
+                    <p class="joinuser__form-name">Контакти</p>
+                    <div class="content__form-block">
+                        <select class="person-type-select required person-type-select-second" id="person-type-2">
+                            <option value="ФОП" selected>ФОП</option>
+                            <option value="Юридична особа">Юридична особа</option>
+                        </select>
+                        <label for="person-type-2">ФОП<span>*</span></label>
+                    </div>
+                    <div class="joinuser__content-selected joinuser__selected-first">
+                        <div class="content__form-block">
+                            <input type="text" id="fop-number" name="number" class="required">
+                            <label for="fop-number">Контактний номер телефону<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="email" id="fop-email" name="email" class="required">
+                            <label for="fop-email">Контактний e-mail<span>*</span></label>
+                        </div>
+                        <p class="joinuser__form-after">Після завершення заповнення полів ви отримаєте сформований рахунок на оплату на вказаний e-mail</p>
+
+                        <div class="joinuser__form-next">
+                            <div class="step-info">Крок 1/3</div>
+                            <button class="btn" type="button" onclick="showStep(event, 2)">Далі</button>
+                        </div>
+                    </div>
+
+                    <div class="joinuser__content-selected joinuser__selected-second" id="legal-entity-form">
+                        <div class="content__form-block">
+                            <input type="text" id="entity-ownership" name="entity-ownership" class="required">
+                            <label for="entity-ownership">Назва та форма власності<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="legal-address" name="legal-address" class="required">
+                            <label for="legal-address">Юридична адреса<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="EDRPOU" name="EDRPOU" class="required">
+                            <label for="EDRPOU">Код ЄДРПОУ<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="bank" name="bank" class="required">
+                            <label for="bank">Банк<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="current-account-number" name="current-account-number" class="required">
+                            <label for="current-account-number">Номер розрахункового рахунку<span>*</span></label>
+                        </div>
+                        <div class="content__form-box">
+                            <div class="content__form-block joinuser__form-series">
+                                <input type="text" id="MFI" name="MFI" class="required">
+                                <label for="MFI">МФО<span>*</span></label>
+                            </div>
+                            <div class="content__form-block">
+                                <input type="number" id="TIN" name="TIN" class="required">
+                                <label for="TIN">ІПН<span>*</span></label>
+                            </div>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="VAT" name="VAT" class="required">
+                            <label for="VAT">Номер св-ва платника ПДВ<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="PIP-of-the-director" name="PIP-of-the-director" class="required">
+                            <label for="PIP-of-the-director">ПІП директора<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="text" id="phone" name="phone" class="required">
+                            <label for="phone">Контактний номер телефону<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="email" id="email" name="email" class="required">
+                            <label for="email">Контактний e-mail<span>*</span></label>
+                        </div>
+                        <p class="joinuser__form-after">Після завершення заповнення полів ви отримаєте сформований рахунок на оплату на вказаний e-mail</p>
+                        <label class="joinuser__form-agree content__form-agree">
+                            <input type="checkbox" name="checkbox" class="agree__checkbox required">
+                            <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                        </label>
+                        <div class="joinuser__form-next">
+                            <div class="step-info"></div>
+                            <button class="send__btn-inform btn" type="button" onclick="submitLegalEntityForm()">Відправити</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="joinuser__content-step joinuser__step-2">
+                    <p class="joinuser__form-name">Дані ФОП</p>
+                    <div class="content__form-block">
+                        <input type="text" id="registration-certificate-number" name="registration-certificate-number" class="required">
+                        <label for="registration-certificate-number">Номер свідоцтва про реєстрацію<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="fop-bank" name="fop-bank" class="required">
+                        <label for="fop-bank">Банк<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="fop-current-account-number" name="fop-current-account-number" class="required">
+                        <label for="fop-current-account-number">Номер розрахункового рахунку<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="fop-VAT" name="fop-VAT" class="required">
+                        <label for="fop-VAT">Номер св-ва платника ПДВ<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="fop-EDRPOU" name="fop-EDRPOU" class="required">
+                        <label for="fop-EDRPOU">ЄДРПОУ<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="fop-type-activity" name="fop-type-activity" class="required">
+                        <label for="fop-type-activity">Рід підприємницької діяльності<span>*</span></label>
+                    </div>
+
+                    <label class="joinuser__form-agree content__form-agree">
+                        <input type="checkbox" name="checkbox" class="agree__checkbox required">
+                        <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                    </label>
+
+                    <div class="joinuser__form-next">
+                        <div class="step-info">Крок 2/3</div>
+                        <button class="btn" type="button" onclick="showStep(event, 3)">Далі</button>
+                    </div>
+                </div>
+                <div class="joinuser__content-step joinuser__step-3">
+                    <p class="joinuser__form-name">Паспортні дані</p>
+                    <div class="content__form-block">
+                        <input type="text" id="passport-full-name" name="passport-full-name" class="required">
+                        <label for="passport-full-name">ПІП<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="date" id="birthdate-2" name="birthdate" class="required">
+                        <label for="birthdate-2">Дата народження<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <label class="joinuser__form-file content__form-file photo-label">
+                                    <span class="preview-container">
+                                        <span class="preview-container-image">
+                                            <img class="preview" src="/" alt="Preview">
+                                        </span>
+                                        <button type="button" class="delete-button" onclick="removeImage(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                                                <path d="M0.989258 4.4155H3.28411M14.9892 4.4155H12.7954M10.6016 4.4155H5.57897M10.6016 4.4155V1.5H5.57897V4.4155M10.6016 4.4155H12.7954M5.57897 4.4155H3.28411M3.28411 4.4155V15.5H12.7954V4.4155M6.41608 7.21551V12.2093M9.44699 7.21551V12.2093" stroke="#9393A3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                            Видалити
+                                        </button>
+                                    </span>
+                            <span class="photo-label-text">Фото<span>*</span></span>
+                            <input type="file" id="file-photo" name="photo" class="photo-input required" accept="image/png, image/jpeg" onchange="handleFileUpload(event, this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M1 12.0385L1 13.8514C1 14.4858 1.51343 15 2.14677 15H4.2032M1 12.0385L1 2.14861C1 1.51425 1.51343 1 2.14677 1H13.8532C14.4866 1 15 1.51425 15 2.14861V9.27885M1 12.0385L3.46248 9.79626C3.88683 9.40987 4.53091 9.39686 4.97046 9.76581L7.384 11.7917M7.384 11.7917L11.5025 7.70455C11.9232 7.28713 12.5919 7.2591 13.0459 7.63987L15 9.27885M7.384 11.7917L4.2032 15M15 9.27885V13.8514C15 14.4858 14.4866 15 13.8532 15H4.2032M6.92084 5.28585C6.92084 6.18798 6.19068 6.91931 5.29 6.91931C4.38931 6.91931 3.65916 6.18798 3.65916 5.28585C3.65916 4.38372 4.38931 3.6524 5.29 3.6524C6.19068 3.6524 6.92084 4.38372 6.92084 5.28585Z" stroke="#222222" stroke-width="2"></path>
+                            </svg>
+                        </label>
+
+                        <p class="joinuser__form-descr">Png, Jpg - до 5мб. (35 x 45 - паспортний формат фото)</p>
+                    </div>
+                    <div class="content__form-box">
+                        <div class="content__form-block joinuser__form-series">
+                            <input type="text" id="passport-series-num" name="passport-series-num" class="required">
+                            <label for="passport-series-num">Серія<span>*</span></label>
+                        </div>
+                        <div class="content__form-block">
+                            <input type="number" id="passport-number-num" name="passport-number-num" class="required">
+                            <label for="passport-number-num">Номер<span>*</span></label>
+                        </div>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="issuer" name="issuer" class="required">
+                        <label for="issuer">Ким виданий<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="number" id="passport-tax-id" name="passport-tax-id" class="required">
+                        <label for="passport-tax-id">ІПН<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="passport-address" name="passport-address" class="required">
+                        <label for="passport-address">Місце проживання<span>*</span></label>
+                    </div>
+                    <div class="content__form-block">
+                        <input type="text" id="number-hunter-license" name="number-hunter-license">
+                        <label for="number-hunter-license">Номер посвідчення мисливця</label>
+                    </div>
+
+                    <label class="joinuser__form-agree content__form-agree">
+                        <input type="checkbox" name="checkbox" class="agree__checkbox required">
+                        <span class="checkmark">Даю згоду на <a href="#">обробку свої персональних даних</a></span>
+                    </label>
+
+                    <div class="joinuser__form-next">
+                        <div class="step-info">Крок 3/3</div>
+                        <button class="btn" type="submit">Відправити</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

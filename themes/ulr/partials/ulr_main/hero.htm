@@ -1,0 +1,39 @@
+<section class="hero">
+    <div class="hero__inner">
+        <div class="hero__slider">
+            <div class="swiper-wrapper">
+                {% for slider_1 in this.theme.slider_1 %}
+                <div class="hero__slide swiper-slide">
+                    <div class="container">
+                        <div class="hero__slide-box">
+                            <div class="hero__slide-content">
+                                <h1>{{ slider_1.slider_first_heading }}</h1>
+                                <p>{{ slider_1.slider_first_text }}</p>
+                            </div>
+                            <a class="hero__slide-link btn-3" href="{{ slider_1.slider_first_button_url }}">{{ slider_1.slider_first_button }}</a>
+                        </div>
+                        <div class="hero__slide-image">
+                            <img src="{{ slider_1.slider_bgr | media }}" alt="{{ slider_1.slider_first_heading }}">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <span class="hero__slider-pagination slider-pagination"></span>
+        </div>
+        <div class="hero__slider-container container">
+            <div class="hero__slider-btns">
+                <span class="hero__slider-prev slider-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M14.373 27.1802L1.87305 14.6297M14.373 2.07921L1.87305 14.6297M1.87305 14.6297L28.123 14.6297" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                    </svg>
+                </span>
+                <span class="hero__slider-next slider-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M15.623 27.1802L28.123 14.6297M15.6231 2.07921L28.123 14.6297M28.123 14.6297L1.87305 14.6297" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

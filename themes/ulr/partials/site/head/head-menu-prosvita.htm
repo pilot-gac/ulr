@@ -1,0 +1,26 @@
+[collection blogCategory]
+handle = "Blog\Category"
+==
+{% for category in blogCategories %}
+{% if category.children|length > 0 %}
+<div class="header__link-item">
+    <a href="{{ 'blog/category'|page({ slug: category.slug }) }}">
+        {{ category.title }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+            <path d="M3.4541 11.7041L8.5459 6.45412L3.4541 1.20412" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </a>
+    <div class="header__link-block">
+        {% for subcategory in category.children %}
+        <a href="{{ 'blog/category'|page({ slug: subcategory.slug }) }}">
+            {{ subcategory.title }}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<a href="{{ 'blog/category'|page({ slug: category.slug }) }}">
+    {{ category.title }}
+</a>
+{% endif %}
+{% endfor %}

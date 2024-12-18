@@ -1,0 +1,279 @@
+[collection blogCategories]
+handle = "Blog\Category"
+
+[collection blogcultureCategories]
+handle = "Blogculture\Category"
+==
+<!--<header class="header {% if this.page.id == 'home' %}header-transparent{% endif %}">-->
+<header class="header {% if this.page.id == 'index' %}header-transparent{% endif %}">
+    {% if this.theme.pre_header_enabled %}
+    <div class="header__top">
+        <div class="container">
+            <div class="header__top-content">
+                {% if this.theme.pre_header_image_left %}
+                <div class="header__top-icon">
+                    <img src="{{ this.theme.pre_header_image_left | media }}" alt="Left Image">
+                </div>
+                {% endif %}
+                <p class="header__top-name"> {{ this.theme.pre_header_text }}</p>
+                {% if this.theme.pre_header_image_right %}
+                <div class="header__top-icon">
+                    <img src="{{ this.theme.pre_header_image_right | media }}" alt="Right Image">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="container">
+    <div class="header__inner">
+            <a class="header__logo" href="/"
+                style="background-image: url('{{ this.theme.logo_header_white | media }}');">
+                <img src="{{ this.theme.logo_header | media }}" alt="logo">
+            </a>
+            <nav class="header__menu">
+                <ul>
+                    <!-- menu prosvita -->
+                    <li>
+                        <a class="header__link header__link-more" href="{{ this.theme.header_menu_prosvita_link}}">{{ this.theme.header_menu_prosvita_name }}
+                        </a>
+                        <div class="header__link-content">
+                            <span class="header__link-content-prev"></span>
+                            <div class="header__link-items">
+                                <!-- menu from blog tailor -->
+                                {% for category in blogCategories %}
+                                {% if category.children|length > 0 %}
+                                <div class="header__link-item">
+                                    <a href="{{ 'blog/category'|page({ slug: category.slug }) }}">
+                                        {{ category.title }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                            <path d="M3.4541 11.7041L8.5459 6.45412L3.4541 1.20412" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                    <div class="header__link-block">
+                                        {% for subcategory in category.children %}
+                                        <a href="{{ 'blog/category'|page({ slug: subcategory.slug }) }}">
+                                            {{ subcategory.title }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a href="{{ 'blog/category'|page({ slug: category.slug }) }}">
+                                    {{ category.title }}
+                                </a>
+                                {% endif %}
+                                {% endfor %}
+                                <!-- menu from admin panel -->
+                                {% for menuItem in this.theme.header_menu_prosvita %}
+                                {% if menuItem.header_menu_enabled %}
+                                {% if menuItem.header_menu_children|length > 0 %}
+                                <div class="header__link-item">
+                                    <a href="{{ menuItem.header_menu_link }}">
+                                        {{ menuItem.header_menu_name }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                            <path d="M3.4541 11.7041L8.5459 6.45412L3.4541 1.20412" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                    <div class="header__link-block">
+                                        {% for submenu in menuItem.header_menu_children %}
+                                        {% if submenu.submenu_enabled %}
+                                        <a href="{{ submenu.submenu_link }}">{{ submenu.submenu_name }}</a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                    <!-- menu kultura -->
+                    <li>
+                        <a class="header__link header__link-more" href="{{ this.theme.header_menu_kultura_link}}">{{ this.theme.header_menu_kultura_name}}</a>
+                        <div class="header__link-content">
+                            <span class="header__link-content-prev"></span>
+                            <div class="header__link-items">
+                                {% for category in blogcultureCategories %}
+                                {% if category.children|length > 0 %}
+                                <div class="header__link-item">
+                                    <a href="{{ 'blogculture/category'|page({ slug: category.slug }) }}">
+                                        {{ category.title }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                            <path d="M3.4541 11.7041L8.5459 6.45412L3.4541 1.20412" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                    <div class="header__link-block">
+                                        {% for subcategory in category.children %}
+                                        <a href="{{ 'blogculture/category'|page({ slug: subcategory.slug }) }}">
+                                            {{ subcategory.title }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a href="{{ 'blogculture/category'|page({ slug: category.slug }) }}">
+                                    {{ category.title }}
+                                </a>
+                                {% endif %}
+                                {% endfor %}
+                                <!-- menu from admin panel -->
+                                {% for menuItem in this.theme.header_menu_kultura %}
+                                {% if menuItem.header_menu_enabled %}
+                                {% if menuItem.header_menu_children|length > 0 %}
+                                <div class="header__link-item">
+                                    <a href="{{ menuItem.header_menu_link }}">
+                                        {{ menuItem.header_menu_name }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                            <path d="M3.4541 11.7041L8.5459 6.45412L3.4541 1.20412" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                    <div class="header__link-block">
+                                        {% for submenu in menuItem.header_menu_children %}
+                                        {% if submenu.submenu_enabled %}
+                                        <a href="{{ submenu.submenu_link }}">{{ submenu.submenu_name }}</a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                    <!-- menu diyalnist -->
+                    <li>
+                        <a class="header__link header__link-more" href="#">Діяльність</a>
+                        <div class="header__link-content">
+                            <span class="header__link-content-prev"></span>
+                            <div class="header__link-items">
+                                {% set currentIndex = 1 %}
+                                {% for menuItem in this.theme.header_menu_diyalnist %}
+                                {% if currentIndex == 6 %}
+                                <!-- Додати стрілецьке змагання -->
+                                <a class="header__add" href="/addzmagannya" data-popup="range">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7.09131 1.75006V6.90876M7.09131 6.90876V12.2501M7.09131 6.90876H1.75M7.09131 6.90876H12.25" stroke="#006438" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Додати стрілецьке змагання
+                                </a>
+                                {% endif %}
+                                {% if currentIndex == 8 %}
+                                <!-- Додати тир чи стрільбище -->
+                                <a class="header__add" href="/addshooting" data-popup="competition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7.09131 1.75006V6.90876M7.09131 6.90876V12.2501M7.09131 6.90876H1.75M7.09131 6.90876H12.25" stroke="#006438" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Додати тир чи стрільбище
+                                </a>
+                                {% endif %}
+                                {% if currentIndex == 10 %}
+                                <!-- Додати мисливське угіддя -->
+                                <a class="header__add" href="/addground" data-popup="hunting">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7.09131 1.75006V6.90876M7.09131 6.90876V12.2501M7.09131 6.90876H1.75M7.09131 6.90876H12.25" stroke="#006438" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Додати мисливське угіддя
+                                </a>
+                                {% endif %}
+
+                                {% if menuItem.header_menu_enabled %}
+                                {% if menuItem.header_menu_children|length > 0 %}
+                                <div class="header__link-item">
+                                    <a href="{{ menuItem.header_menu_link }}">
+                                        {{ menuItem.header_menu_name }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                            <path d="M3.4541 11.7041L8.5459 6.45412L3.4541 1.20412" stroke="#BCBCCC" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </a>
+                                    <div class="header__link-block">
+                                        {% for submenu in menuItem.header_menu_children %}
+                                        {% if submenu.submenu_enabled %}
+                                        <a href="{{ submenu.submenu_link }}">{{ submenu.submenu_name }}</a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                                {% endif %}
+                                {% endif %}
+
+                                {% set currentIndex = currentIndex + 1 %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                    <!-- menu kontakty -->
+                    <li>
+                        {% for menuItem in this.theme.header_menu_contacts %}
+                        <a class="header__link" href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                        {% endfor %}
+                    </li>
+                    <!-- menu faq -->
+                    <li>
+                        {% for menuItem in this.theme.header_menu_faq %}
+                        <a class="header__link" href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                        {% endfor %}
+                    </li>
+                </ul>
+                <!-- menu social -->
+                <div class="header__social">
+                    <a class="header__social-link" href="{{ this.theme.telegram }}" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M1.22615 9.47C1.22615 9.47 10.0717 5.62838 13.1395 4.2757C14.3155 3.73462 18.3036 2.00319 18.3036 2.00319C18.3036 2.00319 20.1443 1.24569 19.9909 3.08534C19.9398 3.84284 19.5307 6.49409 19.1217 9.36178C18.5081 13.4198 17.8435 17.8566 17.8435 17.8566C17.8435 17.8566 17.7412 19.1011 16.872 19.3175C16.0028 19.534 14.5711 18.56 14.3155 18.3436C14.111 18.1813 10.4807 15.7464 9.15133 14.5561C8.79341 14.2314 8.38437 13.5822 9.20246 12.8246C11.0431 11.0391 13.2417 8.82071 14.5711 7.41392C15.1847 6.76463 15.7982 5.24963 13.2417 7.08928C9.6115 9.74053 6.03238 12.2295 6.03238 12.2295C6.03238 12.2295 5.2143 12.7705 3.6804 12.2836C2.14649 11.7966 0.356936 11.1473 0.356936 11.1473C0.356936 11.1473 -0.870188 10.3357 1.22615 9.47Z" fill="#35AEE2"></path>
+                        </svg>
+                        Telegram
+                    </a>
+                    <a class="header__social-link" href="{{ this.theme.facebook }}" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.61157H7.14286V4.6281C7.14286 3.74479 7.19 2.33702 7.85714 1.4876C8.55607 0.593058 9.41821 0 11.0714 0C13.7679 0 15 0.330579 15 0.330579L14.4643 3.47107C13.8904 3.27832 13.2884 3.16687 12.6786 3.1405C11.8425 3.1405 11.0714 3.32843 11.0714 4.13223V6.61157H14.6429V9.58678H11.0714V20H7.14286V9.58678H5V6.61157Z" fill="#1D52A1"></path>
+                        </svg>
+                        Facebook
+                    </a>
+                </div>
+                <!-- menu mobile join gs -->
+                {% for menuItem in this.theme.header_menu_join %}
+                <a class="header__btn btn" href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                {% endfor %}
+            </nav>
+            <div class="header__box">
+                <div class="header__social">
+                    <a class="header__social-link" href="{{ this.theme.telegram }}" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M1.22615 9.47C1.22615 9.47 10.0717 5.62838 13.1395 4.2757C14.3155 3.73462 18.3036 2.00319 18.3036 2.00319C18.3036 2.00319 20.1443 1.24569 19.9909 3.08534C19.9398 3.84284 19.5307 6.49409 19.1217 9.36178C18.5081 13.4198 17.8435 17.8566 17.8435 17.8566C17.8435 17.8566 17.7412 19.1011 16.872 19.3175C16.0028 19.534 14.5711 18.56 14.3155 18.3436C14.111 18.1813 10.4807 15.7464 9.15133 14.5561C8.79341 14.2314 8.38437 13.5822 9.20246 12.8246C11.0431 11.0391 13.2417 8.82071 14.5711 7.41392C15.1847 6.76463 15.7982 5.24963 13.2417 7.08928C9.6115 9.74053 6.03238 12.2295 6.03238 12.2295C6.03238 12.2295 5.2143 12.7705 3.6804 12.2836C2.14649 11.7966 0.356936 11.1473 0.356936 11.1473C0.356936 11.1473 -0.870188 10.3357 1.22615 9.47Z" fill="#35AEE2"/>
+                        </svg>
+                    </a>
+                    <a class="header__social-link" href="{{ this.theme.facebook }}" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.61157H7.14286V4.6281C7.14286 3.74479 7.19 2.33702 7.85714 1.4876C8.55607 0.593058 9.41821 0 11.0714 0C13.7679 0 15 0.330579 15 0.330579L14.4643 3.47107C13.8904 3.27832 13.2884 3.16687 12.6786 3.1405C11.8425 3.1405 11.0714 3.32843 11.0714 4.13223V6.61157H14.6429V9.58678H11.0714V20H7.14286V9.58678H5V6.61157Z" fill="#1D52A1"/>
+                        </svg>
+                    </a>
+                </div>
+                <!-- menu join gs -->
+                {% for menuItem in this.theme.header_menu_join %}
+                <a class="header__btn btn" href="{{ menuItem.header_menu_link }}">{{ menuItem.header_menu_name }}</a>
+                {% endfor %}
+            </div>
+            <button class="header__burger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <rect x="1.06274" y="1.36206" width="13.9148" height="1.36523" rx="0.682617" fill="#006438"/>
+                    <rect x="1.06274" y="13.5017" width="13.9148" height="1.36523" rx="0.682617" fill="#006438"/>
+                    <rect x="1.06274" y="7.43188" width="13.9148" height="1.36523" rx="0.682617" fill="#006438"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M1.24138 1L8 7.8772M8 7.8772L15 15M8 7.8772L1 15M8 7.8772L14.7586 1.00001" stroke="#006438" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+        </div>
+    </div>
+
+
+</header>

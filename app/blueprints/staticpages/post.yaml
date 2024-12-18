@@ -1,0 +1,42 @@
+uuid: a74f4ebb-09b3-4164-9035-a94c6577be72
+handle: Staticpages\Post
+type: stream
+name: Page
+drafts: true
+
+primaryNavigation:
+    label: Діяльність (статичні)
+    icon: octo-icon-file
+    iconSvg: modules/tailor/assets/images/blog-icon.svg
+    order: 95
+
+navigation:
+    icon: octo-icon-pencil
+    order: 100
+
+groups:
+    regular_post:
+        name: Regular Post
+        fields:
+            content:
+                tab: Edit
+                label: Content
+                type: richeditor
+                span: adaptive
+
+            _blog_post_content:
+                type: mixin
+                source: Staticpages\PostContent
+
+    markdown_post:
+        name: Markdown Post
+        fields:
+            content:
+                tab: Edit
+                label: Content
+                type: markdown
+                span: adaptive
+
+            _blog_post_content:
+                type: mixin
+                source: Staticpages\PostContent

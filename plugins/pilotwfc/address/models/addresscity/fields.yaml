@@ -1,0 +1,10 @@
+fields:
+    city:
+        label: Місто
+        span: auto
+        type: text
+    slug:
+        label: URL
+        span: auto
+        type: text
+        preset: city

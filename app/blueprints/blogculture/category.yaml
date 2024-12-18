@@ -1,0 +1,18 @@
+uuid: 6f916c67-d154-4540-b198-403042a8f6bd
+type: structure
+handle: Blogculture\Category
+name: Category
+drafts: false
+
+structure:
+    maxDepth: 2
+
+navigation:
+    parent: Blogculture\Post
+    icon: octo-icon-list-ul
+    order: 150
+
+fields:
+    description:
+        label: Description
+        type: textarea

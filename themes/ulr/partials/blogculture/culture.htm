@@ -1,0 +1,95 @@
+[collection blogCategories]
+handle = "Blogculture\Category"
+
+[collection BlogPosts]
+handle = "Blogculture\Post"
+==
+<style>
+    .materials__item {
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .materials__item.hide {
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+    }
+</style>
+<section class="materials">
+    <div class="container">
+        <nav class="breadcrumb">
+            <ul>
+                <li>
+                    <a href="{{ 'index' | page }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path
+                                d="M7.66569 14.4961L0.999023 7.8025M7.66568 1.10891L0.999023 7.8025M0.999023 7.8025L14.999 7.8025"
+                                stroke="#9393A3" stroke-linecap="square"/>
+                        </svg>
+                        <span>Назад</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ 'index' | page }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8.00887 1L1 6.09091V15H6.35247L6.35235 10.5267H9.64753V15H15V6.09091L8.00887 1Z"
+                                  stroke="#9393A3"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="/culture">
+                        <span>Культура</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+                <!-- sidebar categories -->
+                {% partial 'blogculture/blog-sidebar' %}
+                <!-- main part -->
+                <div class="materials__result-content">
+                    <div class="materials__result materials__result-grid">
+                        {% set posts = blog.paginate(12) %}
+                        {% for post in posts %}
+                        <div class="materials__item">
+                            <div class="clause__image">
+                                <img src="{{ post.banner ? post.banner.path : 'path/to/default/image.jpg' }}"
+                                     alt="{{ post.title }}">
+                            </div>
+                            <div class="clause__content">
+                                <div class="clause__top">
+                                    <p>{{ post.published_at|date('d MMMM') }}</p>
+                                    <div class="clause__time">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             viewBox="0 0 16 16" fill="none">
+                                            <path
+                                                d="M8 1.38477C4.14027 1.38477 1 4.52503 1 8.38477C1 12.2445 4.14027 15.3848 8 15.3848C11.8597 15.3848 15 12.2445 15 8.38477C15 4.52503 11.8597 1.38477 8 1.38477Z"
+                                                stroke="white"></path>
+                                            <path d="M10 10.0598L8 9.01356V6.05981" stroke="white"
+                                                  stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                        <p>{{ post.reading_time }} хв. читання</p>
+                                    </div>
+                                    <p>
+                                        {% for category in post.categories %}
+                                        <span>#{{ category.title }}</span>
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                                <a href="{{ 'blogculture/post'|page({ slug: post.slug }) }}">
+                                    <p>{{ post.featured_text }}</p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="pages-btns materials__pages"> {{ pager(posts) }}</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

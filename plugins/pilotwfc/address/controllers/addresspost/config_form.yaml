@@ -1,0 +1,10 @@
+name: AddressPost
+form: $/pilotwfc/address/models/addresspost/fields.yaml
+modelClass: Pilotwfc\Address\Models\AddressPost
+defaultRedirect: pilotwfc/address/addresspost
+create:
+    redirect: 'pilotwfc/address/addresspost/update/:id'
+    redirectClose: pilotwfc/address/addresspost
+update:
+    redirect: pilotwfc/address/addresspost
+    redirectClose: pilotwfc/address/addresspost
