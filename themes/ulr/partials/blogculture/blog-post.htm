@@ -28,12 +28,7 @@
                     </div>
                     <h1>{{ post.title }}</h1>
                     <p>
-                        Тут якись спеціальний текст, типу вступу?
-<!--                        {% if post.entry_type == 'markdown_post' %}-->
-<!--                        {{ post.content|md|content }}-->
-<!--                        {% else %}-->
-<!--                        {{ post.content|content }}-->
-<!--                        {% endif %}-->
+                        {{ post.featured_text }}
                     </p>
                 </div>
             </div>
