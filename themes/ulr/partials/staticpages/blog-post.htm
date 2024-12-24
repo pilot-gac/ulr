@@ -34,7 +34,7 @@
                     <img src="{{ partial('helpers/random-stock-image') }}" alt="{{ post.title }}">
                     {% endif %}
                 </div>
-                <div class="article__top-content">
+                 <div class="article__top-content" style="background:0;backdrop-filter:blur(0);">
                     <div class="article__top-about clause__top">
                        {# <p>{{ post.published_at_date|date('j F') }}</p>
                         <div class="clause__time">
@@ -44,13 +44,15 @@
                             </svg>
                             <p>{{ post.reading_time }} хв. читання</p>
                         </div> #}
+
+
                         {% if post.categories %}
                         {% for category in post.categories %}
                         <p>#{{ category.title }}</p>
                         {% endfor %}
                         {% endif %}
                     </div>
-                    <h1>{{ post.title }}</h1>
+                    {# <h1>{{ post.title }}</h1> #}
 
                 </div>
             </div>
