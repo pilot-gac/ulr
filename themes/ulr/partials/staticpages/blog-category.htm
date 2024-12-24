@@ -6,7 +6,8 @@ handle = "Blog\Post"
 ==
 <section class="materials">
     <div class="container">
-        <nav class="breadcrumb">
+        {% partial 'staticpages-breadcrumb' %}
+       {# <nav class="breadcrumb">
             <ul>
                 <li>
                     <a href="/">
@@ -29,7 +30,7 @@ handle = "Blog\Post"
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> #}
         <div class="materials__inner">
             <h1 class="materials__title">{{ category.title }} </h1>
 
