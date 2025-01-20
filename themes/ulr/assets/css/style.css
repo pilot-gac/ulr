@@ -3502,6 +3502,7 @@ li.type-competition p{
 .article__content p:hover{
     text-decoration: underline;
 }
+
 .article__image{
     display: flex;
     align-items: center;
