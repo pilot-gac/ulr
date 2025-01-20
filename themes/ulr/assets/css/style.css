@@ -83,6 +83,9 @@ a{
     vertical-align:baseline;
     background:transparent;
 }
+p a{
+    text-decoration: underline;
+}
 button{
     cursor: pointer;
     outline: none;
