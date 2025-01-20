@@ -83,9 +83,6 @@ a{
     vertical-align:baseline;
     background:transparent;
 }
-p a{
-    text-decoration: underline;
-}
 button{
     cursor: pointer;
     outline: none;
@@ -3502,7 +3499,7 @@ li.type-competition p{
     font-size: 16px;
     line-height: 24px;
 }
-.article__content p:hover{
+.article__content a {
     text-decoration: underline;
 }
 
