@@ -33,7 +33,6 @@
                 </div>
             </div>
             <div class="article__content">
-                <h4>{{ post.title }}</h4>
                 <p>
                     {% if post.entry_type == 'markdown_post' %}
                     {{ post.content|md|content }}
